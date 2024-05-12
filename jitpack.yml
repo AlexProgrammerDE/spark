@@ -1,4 +1,4 @@
 jdk:
   - openjdk21
 install:
-   - ./gradlew -xtest spark-common:publishToMavenLocal
+   - ./gradlew -xtest publishToMavenLocal
