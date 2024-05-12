@@ -2,6 +2,7 @@ import org.cadixdev.gradle.licenser.LicenseExtension
 
 plugins {
     id 'com.google.protobuf' version '0.9.1'
+    id 'maven-publish'
 }
 
 license {
@@ -57,6 +58,28 @@ protobuf {
                 java {
                     option 'lite'
                 }
+            }
+        }
+    }
+}
+
+publishing {
+    //repositories {
+    //    maven {
+    //        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    //        credentials {
+    //            username = sonatypeUsername
+    //            password = sonatypePassword
+    //        }
+    //    }
+    //}
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = 'spark'
+                description = 'spark is a performance profiling plugin/mod for Minecraft clients, servers and proxies.'
+                url = 'https://spark.lucko.me/'
             }
         }
     }
